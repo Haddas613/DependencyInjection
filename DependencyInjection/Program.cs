@@ -81,7 +81,7 @@ namespace DependencyInjection
         static void Main(string[] args)
         {
             IServiceCollection collection = new ServiceCollection();
-            collection.AddScoped<IDataAccess, DataAccessMySQL>();
+            collection.AddScoped<IDataAccess, DataAccessMySQL>();//same even for all threads rather than Transient
             collection.AddScoped<IBusiness, Business>();
             collection.AddScoped<UserInterface>();
 
