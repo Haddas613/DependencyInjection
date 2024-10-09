@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/DependencyInjection/FileContentIndex/79ba464b-1d89-417e-a5d6-d5ed9985875e.vsidx
+bin
+/DependencyInjection/obj
+/.vs/DependencyInjection/FileContentIndex
+/.vs/DependencyInjection/v17/.suo
