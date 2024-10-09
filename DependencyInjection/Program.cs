@@ -12,7 +12,7 @@ namespace DependencyInjection
     public class UserInterface
     {
         private string _userName;
-        private string _pass;
+        private string _password;
 
         private IBusiness _business;
 
@@ -25,8 +25,8 @@ namespace DependencyInjection
             Console.Write("Enter user name:");
             _userName = Console.ReadLine();
 
-            Console.Write("Enter pass:");
-            _pass = Console.ReadLine();
+            Console.Write("Enter password:");
+            _password = Console.ReadLine();
         }
 
         public void Signup()
@@ -34,13 +34,13 @@ namespace DependencyInjection
             GetData();
 
             //var biz = new Business();
-            _business.SignUp(_userName, _pass);
+            _business.SignUp(_userName, _password);
         }
     }
 
     public interface IBusiness
     {
-        void SignUp(string userName, string pass);
+        void SignUp(string userName, string password);
     }
     public class Business : IBusiness
     {
@@ -50,20 +50,20 @@ namespace DependencyInjection
         {
             _dataAccess = dataAccess;
         }
-        public void SignUp(string userName, string pass)
+        public void SignUp(string userName, string password)
         {
             //var da = new DataAccessMySQL();
-            _dataAccess.SignUp(userName, pass);
+            _dataAccess.SignUp(userName, password);
         }
     }
 
     public interface IDataAccess
     {
-        void SignUp(string userName, string pass);
+        void SignUp(string userName, string password);
     }
     public class DataAccessSqlServer : IDataAccess
     {
-        public void SignUp(string userName, string pass)
+        public void SignUp(string userName, string password)
         {
             // use EF to write data into Sql Server   
         }
@@ -71,7 +71,7 @@ namespace DependencyInjection
 
     public class DataAccessMySQL : IDataAccess
     {
-        public void SignUp(string userName, string pass)
+        public void SignUp(string userName, string password)
         {
             // use EF to write data into My SQL  
         }
