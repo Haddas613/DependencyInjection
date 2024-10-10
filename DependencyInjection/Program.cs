@@ -80,12 +80,12 @@ namespace DependencyInjection
     {
         static void Main(string[] args)
         {
-            IServiceCollection collection = new ServiceCollection();
+            IServiceCollection collection = new ServiceCollection();// holding the metadata and mapping of types
             collection.AddScoped<IDataAccess, DataAccessMySQL>();//same even for all threads rather than Transient
             collection.AddScoped<IBusiness, Business>();
             collection.AddScoped<UserInterface>();
 
-            IServiceProvider provider = collection.BuildServiceProvider();
+            IServiceProvider provider = collection.BuildServiceProvider();// creating intances and managing lifetime of the instances
 
             UserInterface ui = provider.GetService<UserInterface>();
             ui.Signup();
